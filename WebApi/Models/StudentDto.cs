@@ -16,7 +16,6 @@ namespace WebApi.Models
         public string? ProfileImageBase64 { get; set; }
     }
 
-    // Base DTO to avoid code duplication
     public class BaseStudentDto
     {
         [Required(ErrorMessage = "First name is required.")]
@@ -49,8 +48,7 @@ namespace WebApi.Models
 
         public bool Active { get; set; }
     }
-
-    // CreateStudentDto inherits BaseStudentDto
+    
     public class CreateStudentDto : BaseStudentDto
     {
         [AllowedExtensions(new string[] { ".jpg", ".png" }, ErrorMessage = "Only .jpg and .png files are allowed.")]
@@ -58,7 +56,6 @@ namespace WebApi.Models
         public IFormFile? Image { get; set; }
     }
 
-    // UpdateStudentDto inherits BaseStudentDto and adds Id
     public class UpdateStudentDto : BaseStudentDto
     {
         [Required]
